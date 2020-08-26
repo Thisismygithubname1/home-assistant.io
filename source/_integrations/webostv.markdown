@@ -125,7 +125,22 @@ media_player:
 
 notify:
 ```
+In certain cases, switches may be required instead of magic_packet.
+```
+media_player:
+  - platform: webostv
+    host: 192.168.0.10
+    name: LG TV
+    timeout: 5
+    turn_on_action:
+      service: switch.turn_on
+      entity_id: switch.lg
 
+switch:
+  - platform: wake_on_lan
+    name: lg
+    mac_address: "aa:bb:cc:dd:ee:ff"
+```    
 Any other [actions](/docs/automation/action/) to power on the device can be configured.
 
 ## Sources
